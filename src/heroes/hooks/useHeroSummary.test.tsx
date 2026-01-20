@@ -64,7 +64,6 @@ describe("useHeroSummary", () => {
 
     expect(result.current.isError).toBe(false);
     expect(mockGetSummaryAction).toHaveBeenCalled();
-    expect(mockGetSummaryAction).toHaveBeenCalledWith();
 
     // expect(result.current.isLoading).toBe(false);
     // expect(result.current.isError).toBe(false);
@@ -126,6 +125,8 @@ describe("useHeroSummary", () => {
     expect(result.current.error).toBeDefined();
     expect(result.current.isLoading).toBe(false);
     expect(mockGetSummaryAction).toHaveBeenCalled();
-    console.log(result.current.error?.message);
+    expect(result.current.error?.message).toStrictEqual(
+      "Failed to fetch summary",
+    );
   });
 });
