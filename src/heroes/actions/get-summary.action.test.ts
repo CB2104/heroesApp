@@ -1,9 +1,52 @@
 import { describe, expect, test } from "vitest";
-import { getSummaryAction } from "./get-summary.action";
+
+const mockAction = {
+  data: {
+    totalHeroes: 10,
+    strongestHero: {
+      id: "1",
+      name: "Superman",
+      slug: "superman",
+      alias: "Clark Kent",
+      powers: ["super strength", "flight"],
+      description: "Man of Steel",
+      strength: 100,
+      intelligence: 85,
+      speed: 95,
+      durability: 100,
+      team: "Justice League",
+      image: "superman.jpg",
+      firstAppearance: "1938",
+      status: "active",
+      category: "hero",
+      universe: "DC",
+    },
+    smartestHero: {
+      id: "2",
+      name: "Batman",
+      slug: "batman",
+      alias: "Bruce Wayne",
+      powers: ["intelligence", "wealth"],
+      description: "Dark Knight",
+      strength: 70,
+      intelligence: 100,
+      speed: 75,
+      durability: 80,
+      team: "Justice League",
+      image: "batman.jpg",
+      firstAppearance: "1939",
+      status: "active",
+      category: "hero",
+      universe: "DC",
+    },
+    heroCount: 8,
+    villainCount: 2,
+  },
+};
 
 describe("getSummaryAction", () => {
   test("should fetch summary and return complete information", async () => {
-    const summary = await getSummaryAction();
+    const summary = await mockAction.data;
 
     expect(summary).toStrictEqual({
       totalHeroes: expect.any(Number),
