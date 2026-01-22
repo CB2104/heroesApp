@@ -85,7 +85,12 @@ export const SearchControls = () => {
       </div>
 
       {/* Advanced Filters */}
-      <Accordion type="single" collapsible value={activeAccordion}>
+      <Accordion
+        type="single"
+        collapsible
+        value={activeAccordion}
+        data-testid="accordion"
+      >
         <AccordionItem value="advance-filters">
           {/* <AccordionTrigger>Is it accessible?</AccordionTrigger> */}
           <AccordionContent>
@@ -121,10 +126,17 @@ export const SearchControls = () => {
                 </div>
               </div>
               <div className="mt-4">
-                <label className="text-sm font-medium">Fuerza: {selectedFuerza}/10</label>
-                <Slider defaultValue={[selectedFuerza]} 
-                onValueChange={value => setQueryParams('strength', value[0].toString())}
-                max={10} step={1} />
+                <label className="text-sm font-medium">
+                  Fuerza: {selectedFuerza}/10
+                </label>
+                <Slider
+                  defaultValue={[selectedFuerza]}
+                  onValueChange={(value) =>
+                    setQueryParams("strength", value[0].toString())
+                  }
+                  max={10}
+                  step={1}
+                />
               </div>
             </div>
           </AccordionContent>
